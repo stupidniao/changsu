@@ -1,0 +1,46 @@
+load("@rules_python//python:defs.bzl", "py_binary", "py_library", "py_test")
+
+py_library(
+    name = "lib",
+    srcs = glob(
+        ["app/**/*.py"],
+        exclude = ["app/**/test_*.py"],
+    ),
+    imports = ["."],
+    visibility = ["//visibility:public"],
+    deps = [
+        "@pip//alembic",
+        "@pip//asyncpg",
+        "@pip//fastapi",
+        "@pip//langchain",
+        "@pip//langchain_openai",
+        "@pip//langgraph",
+        "@pip//pydantic_settings",
+        "@pip//python_dotenv",
+        "@pip//sqlalchemy",
+        "@pip//uvicorn",
+    ],
+)
+
+py_binary(
+    name = "server",
+    srcs = ["run_server.py"],
+    main = "run_server.py",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":lib",
+        "@pip//uvicorn",
+    ],
+)
+
+py_test(
+    name = "test",
+    srcs = glob(["tests/**/*.py"]),
+    imports = ["."],
+    deps = [
+        ":lib",
+        "@pip//httpx",
+        "@pip//pytest",
+        "@pip//pytest_asyncio",
+    ],
+)

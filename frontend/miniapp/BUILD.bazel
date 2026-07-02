@@ -1,0 +1,50 @@
+load("@npm//:defs.bzl", "npm_link_all_packages")
+load("@aspect_rules_js//js:defs.bzl", "js_run_binary")
+
+npm_link_all_packages(name = "node_modules")
+
+js_run_binary(
+    name = "build",
+    tool = "@npm//frontend/miniapp:@tarojs/cli",
+    args = [
+        "build",
+        "--type",
+        "weapp",
+    ],
+    chdir = package_name(),
+    srcs = glob([
+        "config/**/*",
+        "src/**/*",
+        "babel.config.js",
+        "project.config.json",
+        "tsconfig.json",
+    ]) + [
+        "package.json",
+        "//packages/shared:shared",
+    ],
+    out_dirs = ["dist"],
+    visibility = ["//visibility:public"],
+)
+
+js_run_binary(
+    name = "dev",
+    tool = "@npm//frontend/miniapp:@tarojs/cli",
+    args = [
+        "build",
+        "--type",
+        "weapp",
+        "--watch",
+    ],
+    chdir = package_name(),
+    srcs = glob([
+        "config/**/*",
+        "src/**/*",
+        "babel.config.js",
+        "project.config.json",
+        "tsconfig.json",
+    ]) + [
+        "package.json",
+        "//packages/shared:shared",
+    ],
+    visibility = ["//visibility:public"],
+)

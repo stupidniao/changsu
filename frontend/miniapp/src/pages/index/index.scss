@@ -1,0 +1,23 @@
+.index {
+  min-height: 100vh;
+  padding: 80px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: 28px;
+  color: #6b7280;
+}
+
+.status {
+  margin-top: 24px;
+  font-size: 24px;
+  color: #2563eb;
+}

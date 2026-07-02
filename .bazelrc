@@ -1,0 +1,11 @@
+common --enable_bzlmod
+common --lockfile_mode=update
+
+# Python
+common --@rules_python//python/config_settings:python_version=3.12
+
+# Test output
+test --test_output=errors
+
+# JS / TS
+common --@aspect_rules_ts//ts:skipLibCheck=always_on

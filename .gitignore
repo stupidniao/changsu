@@ -1,0 +1,33 @@
+# Bazel
+/bazel-*
+/bazel-out/
+/bazel-bin/
+/bazel-testlogs/
+
+# Python
+backend/.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# Node
+node_modules/
+.pnpm-store/
+.pnpm-store-isolated/
+
+# Frontend build output
+frontend/miniapp/dist/
+
+# Environment
+.env
+.env.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# Uploads
+uploads/

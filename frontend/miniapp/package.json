@@ -1,0 +1,37 @@
+{
+  "name": "@changsu/miniapp",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "taro build --type weapp --watch",
+    "build": "taro build --type weapp",
+    "dev:h5": "taro build --type h5 --watch",
+    "build:h5": "taro build --type h5"
+  },
+  "dependencies": {
+    "@changsu/shared": "workspace:*",
+    "@tarojs/components": "4.0.9",
+    "@tarojs/react": "4.0.9",
+    "@tarojs/runtime": "4.0.9",
+    "@tarojs/taro": "4.0.9",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-react": "^7.26.0",
+    "@babel/runtime": "^7.26.0",
+    "@tarojs/cli": "4.0.9",
+    "@tarojs/plugin-framework-react": "4.0.9",
+    "@tarojs/webpack5-runner": "4.0.9",
+    "@types/react": "^19.0.0",
+    "babel-preset-taro": "4.0.9",
+    "typescript": "^5.9.3"
+  },
+  "browserslist": [
+    "last 3 versions",
+    "Android >= 4.1",
+    "ios >= 8"
+  ]
+}

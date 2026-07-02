@@ -1,0 +1,5 @@
+# Gazelle Python manifest placeholder.
+# Run Gazelle with rules_python_gazelle_plugin to auto-generate BUILD files later.
+
+manifest:
+  modules_mapping: {}
