@@ -13,10 +13,5 @@
   "engines": {
     "node": ">=20.0.0",
     "pnpm": ">=9.0.0"
-  },
-  "pnpm": {
-    "overrides": {
-      "resolve": "1.22.10"
-    }
   }
 }

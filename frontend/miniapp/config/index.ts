@@ -1,4 +1,5 @@
 import { defineConfig, type UserConfigExport } from "@tarojs/cli";
+import path from "node:path";
 
 export default defineConfig(async (merge) => {
   const base: UserConfigExport = {
@@ -22,6 +23,9 @@ export default defineConfig(async (merge) => {
     framework: "react",
     compiler: "webpack5",
     mini: {
+      compile: {
+        include: [path.resolve(__dirname, "../../../packages/shared")],
+      },
       postcss: {
         pxtransform: {
           enable: true,

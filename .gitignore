@@ -18,6 +18,8 @@ node_modules/
 
 # Frontend build output
 frontend/miniapp/dist/
+frontend/miniapp/.swc/
+frontend/miniapp/project.private.config.json
 
 # Environment
 .env
