@@ -21,3 +21,80 @@
   font-size: 24px;
   color: #2563eb;
 }
+
+.mode-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.mode-button {
+  min-height: 64px;
+  margin: 0;
+  padding: 0 20px;
+  border: 1px solid #d1d5db;
+  border-radius: 999px;
+  font-size: 22px;
+  color: #374151;
+  background: #ffffff;
+}
+
+.mode-button-active {
+  border-color: #2563eb;
+  color: #ffffff;
+  background: #2563eb;
+}
+
+.composer {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.message-input {
+  flex: 1;
+  min-height: 88px;
+  padding: 0 24px;
+  border: 1px solid #d1d5db;
+  border-radius: 16px;
+  font-size: 28px;
+  background: #ffffff;
+}
+
+.send-button {
+  min-width: 144px;
+  min-height: 88px;
+  margin: 0;
+  border-radius: 16px;
+  font-size: 28px;
+}
+
+.reply-card,
+.trace-card {
+  padding: 28px;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  background: #ffffff;
+}
+
+.reply-title {
+  display: block;
+  margin-bottom: 16px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.reply {
+  font-size: 28px;
+  line-height: 1.6;
+  color: #1f2937;
+}
+
+.trace {
+  font-family: monospace;
+  white-space: pre-wrap;
+  font-size: 20px;
+  line-height: 1.5;
+  color: #374151;
+}

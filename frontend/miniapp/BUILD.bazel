@@ -1,11 +1,27 @@
 load("@npm//:defs.bzl", "npm_link_all_packages")
-load("@aspect_rules_js//js:defs.bzl", "js_run_binary")
+load("@aspect_bazel_lib//lib:directory_path.bzl", "directory_path")
+load("@aspect_rules_js//js:defs.bzl", "js_binary", "js_run_binary")
 
 npm_link_all_packages(name = "node_modules")
 
+directory_path(
+    name = "taro_entry",
+    directory = ":node_modules/@tarojs/cli/dir",
+    path = "bin/taro",
+)
+
+js_binary(
+    name = "taro_cli",
+    data = [
+        ":node_modules",
+        "//:node_modules",
+    ],
+    entry_point = ":taro_entry",
+)
+
 js_run_binary(
     name = "build",
-    tool = "@npm//frontend/miniapp:@tarojs/cli",
+    tool = ":taro_cli",
     args = [
         "build",
         "--type",
@@ -19,6 +35,8 @@ js_run_binary(
         "project.config.json",
         "tsconfig.json",
     ]) + [
+        ":node_modules",
+        "//:node_modules",
         "package.json",
         "//packages/shared:shared",
     ],
@@ -26,9 +44,8 @@ js_run_binary(
     visibility = ["//visibility:public"],
 )
 
-js_run_binary(
+js_binary(
     name = "dev",
-    tool = "@npm//frontend/miniapp:@tarojs/cli",
     args = [
         "build",
         "--type",
@@ -36,15 +53,19 @@ js_run_binary(
         "--watch",
     ],
     chdir = package_name(),
-    srcs = glob([
+    data = glob([
         "config/**/*",
         "src/**/*",
         "babel.config.js",
         "project.config.json",
         "tsconfig.json",
     ]) + [
+        ":node_modules",
+        "//:node_modules",
         "package.json",
+        ":node_modules/@tarojs/cli",
         "//packages/shared:shared",
     ],
+    entry_point = ":taro_entry",
     visibility = ["//visibility:public"],
 )
